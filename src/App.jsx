@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Task from './components/task/Task'
 
@@ -6,6 +6,18 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
+  useEffect(() => {
+    const todos = localStorage.getItem("todos");
+    if (todos) {
+      setTodos(JSON.parse(todos));
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("Todos Updated:", todos)
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+  }, [todos])
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -13,7 +25,7 @@ function App() {
 
   const addTask = () => {
     if (inputValue.trim()) {
-      setTodos([...todos, inputValue]);
+      setTodos([...todos, inputValue.trim()]);
       setInputValue("");
     }
   }
@@ -38,9 +50,6 @@ function App() {
           }
 
         </div>
-
-
-
 
       </div>
 
