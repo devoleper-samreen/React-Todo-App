@@ -5,8 +5,13 @@ function Task(params) {
 
             <div className="flex items-center justify-between bg-[#2c2c2c] mb-6 h-12 rounded">
                 <p className="ml-7">hello hii </p>
-                <button className='w-[15%] bg-orange-600 rounded-sm font-semibold h-9 text-white text-lg mr-3'>Delete</button>
-                {/* <button className='w-[15%] bg-orange-600 rounded-sm font-semibold h-9 text-white text-lg mr-3'>Delete</button> */}
+                <div className="p-1">
+                    <button className='px-5 mr-3 bg-red-700 rounded font-semibold h-9 text-white'>U</button>
+                    <button className='px-5 bg-red-700 rounded font-semibold h-9 text-white'>D</button>
+
+                </div>
+
+
             </div>
 
 

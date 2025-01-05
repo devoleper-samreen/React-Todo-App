@@ -17,6 +17,9 @@ function App() {
         <div className="text-white my-12 w-[85vw] flex flex-col md:w-[50vw]">
           <Task />
           <Task />
+          <Task />
+          <Task />
+          <Task />
 
         </div>
 
