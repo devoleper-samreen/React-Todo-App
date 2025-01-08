@@ -23,5 +23,5 @@ This is a simple React-based Todo App with local storage support. It allows user
 
 1. Clone the repository to your local machine:
    ```bash
-   [git clone <repository-url>
-   cd todo-app](https://github.com/devoleper-samreen/React-Todo-App.git)
+   git clone https://github.com/devoleper-samreen/React-Todo-App.git
+   cd React-Todo-App
