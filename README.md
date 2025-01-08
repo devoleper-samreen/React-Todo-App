@@ -3,18 +3,20 @@
 This is a simple React-based Todo App with local storage support. It allows users to:
 - Add new tasks
 - Delete tasks
+- Update task
 - Save tasks persistently using local storage
 
 ## Features
 
 - **Add Todos**: Quickly add new tasks to the list.
 - **Delete Todos**: Remove tasks easily.
+- **Update Todos**: Update task easily.
 - **Persistent Storage**: Automatically saves and loads todos using browser local storage.
 
 ## Technology Used
 
 - **React**: JavaScript library for building the UI.
-- **CSS**: For styling the app.
+- **Tailwind CSS**: For styling the app.
 - **LocalStorage**: For saving user tasks.
 
 ## How to Run the Project?
