@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import Login from './components/auth/login'
+import Registration from './components/auth/registration'
 import Task from './components/task/Task'
 import { ToastContainer, toast } from 'react-toastify'
 
@@ -48,7 +49,8 @@ function App() {
 
   return (
     <>
-      <Login />
+      {/* <Login /> */}
+      <Registration />
 
       {/* <h1 className='text-white text-center text-4xl font-semibold mt-9 mb-11'>TODO App</h1>
       <div className='max-w-[1100px] m-auto flex flex-col items-center justify-center'>
