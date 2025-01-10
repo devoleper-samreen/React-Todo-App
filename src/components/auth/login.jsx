@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 function Login() {
     const [loginData, setLoginData] = useState({
@@ -14,20 +15,28 @@ function Login() {
 
         const allUserData = JSON.parse(localStorage.getItem("UserInfo") || []);
 
-        console.log("All Users:", allUserData);
-        console.log("Login user:", loginData);
-
-
         const userFound = allUserData.find(
             (user) => user.email === loginData.email && user.password === loginData.password
         )
 
         if (userFound) {
-            console.log("user found : ", userFound)
-            navigate("/todo");
+            toast.success("Login successfully!", {
+                autoClose: 1500
+            })
+
+
+            setTimeout(() => {
+                navigate("/todo")
+
+            }, 1500)
+
+
         }
         else {
-            console.log("user not found");
+
+            toast.warn("User Not Exist!", {
+                autoClose: 1500
+            })
         }
 
 
@@ -38,6 +47,7 @@ function Login() {
         <>
             <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                    <ToastContainer theme="dark" />
 
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -56,7 +66,9 @@ function Login() {
 
                                 <button type="submit" className="bg-orange-600 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                                 <p className="text-center text-sm font-light text-gray-500 dark:text-gray-400">
-                                    Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                                    Don’t have an account yet?
+
+                                    <Link to="/register" className="font-medium text-primary-600 hover:underline dark:text-primary-500"> Sign up</Link>
                                 </p>
                             </form>
                         </div >
