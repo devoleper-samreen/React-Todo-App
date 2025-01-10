@@ -2,7 +2,10 @@ import { useState } from "react";
 
 function Registration() {
     const [allUsers, setAllUsers] = useState(
-        JSON.parse(localStorage.getItem("UserInfo"))
+        () => {
+            const storedData = localStorage.getItem("UserInfo");
+            return storedData ? JSON.parse(storedData) : [];
+        }
     );
 
     const [userInfo, setUserInfo] = useState({
@@ -15,7 +18,7 @@ function Registration() {
         e.preventDefault();
 
         setAllUsers((prevUser) => {
-            const updatedUser = [...prevUser, { ...userInfo }];
+            const updatedUser = [...(prevUser || []), userInfo];
             localStorage.setItem("UserInfo", JSON.stringify(updatedUser));
 
             setUserInfo({

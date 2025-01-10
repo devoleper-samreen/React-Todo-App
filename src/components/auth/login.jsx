@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [loginData, setLoginData] = useState({
@@ -6,13 +7,29 @@ function Login() {
         password: ""
     });
 
+    const navigate = useNavigate();
+
     const handleLogin = (e) => {
         e.preventDefault();
 
-        const allUserData = JSON.parse(localStorage.getItem("UserInfo"));
-        console.log(allUserData)
+        const allUserData = JSON.parse(localStorage.getItem("UserInfo") || []);
 
-        console.log("login user:", loginData)
+        console.log("All Users:", allUserData);
+        console.log("Login user:", loginData);
+
+
+        const userFound = allUserData.find(
+            (user) => user.email === loginData.email && user.password === loginData.password
+        )
+
+        if (userFound) {
+            console.log("user found : ", userFound)
+            navigate("/todo");
+        }
+        else {
+            console.log("user not found");
+        }
+
 
 
     }
