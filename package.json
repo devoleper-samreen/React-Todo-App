@@ -1,6 +1,7 @@
 {
   "name": "todo-app",
   "private": true,
+  "homepage": "https://github.com/devoleper-samreen/React-Todo-App.git",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
